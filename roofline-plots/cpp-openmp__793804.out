@@ -1,0 +1,172 @@
+===== CONFIGURATION =====
+=== MODULE LOADS ===
+=== CPU ARCHITECTURE ===
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              48
+On-line CPU(s) list: 0-47
+Thread(s) per core:  1
+Core(s) per socket:  24
+Socket(s):           2
+NUMA node(s):        4
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               85
+Model name:          Intel(R) Xeon(R) Platinum 8268 CPU @ 2.90GHz
+Stepping:            7
+CPU MHz:             2742.781
+BogoMIPS:            5800.00
+Virtualization:      VT-x
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            1024K
+L3 cache:            36608K
+NUMA node0 CPU(s):   0,4,8,12,16,20,24,28,32,36,40,44
+NUMA node1 CPU(s):   1,5,9,13,17,21,25,29,33,37,41,45
+NUMA node2 CPU(s):   2,6,10,14,18,22,26,30,34,38,42,46
+NUMA node3 CPU(s):   3,7,11,15,19,23,27,31,35,39,43,47
+Flags:               fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+=== SLURM CONFIG ===
+JobId=793804 JobName=cpp-openmp0ecyk4h9.sbatch
+   UserId=csuxvf(18094) GroupId=csuxvf(18094) MCS_label=N/A
+   Priority=764898 Nice=0 Account=dcsug QOS=dcsug
+   JobState=RUNNING Reason=None Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:07 TimeLimit=00:10:00 TimeMin=N/A
+   SubmitTime=2024-04-03T21:35:43 EligibleTime=2024-04-03T21:35:43
+   AccrueTime=2024-04-03T21:35:43
+   StartTime=2024-04-03T21:36:10 EndTime=2024-04-03T21:46:10 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2024-04-03T21:36:10
+   Partition=compute AllocNode:Sid=login01:1793594
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=node001
+   BatchHost=node001
+   NumNodes=1 NumCPUs=16 NumTasks=1 CPUs/Task=16 ReqB:S:C:T=0:0:*:*
+   TRES=cpu=16,mem=16000M,node=1,billing=16
+   Socks/Node=* NtasksPerN:B:S:C=1:0:*:* CoreSpec=*
+   MinCPUsNode=16 MinMemoryNode=16000M MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=MCS Contiguous=0 Licenses=(null) Network=(null)
+   Command=/gpfs/home/dcs/csuxvf/Desktop/hpccg-rs/hpc-multibench/cpp-openmp0ecyk4h9.sbatch
+   WorkDir=/gpfs/home/dcs/csuxvf/Desktop/hpccg-rs/hpc-multibench
+   StdErr=/gpfs/home/dcs/csuxvf/Desktop/hpccg-rs/hpc-multibench/results/roofline-plots/cpp-openmp__793804.out
+   StdIn=/dev/null
+   StdOut=/gpfs/home/dcs/csuxvf/Desktop/hpccg-rs/hpc-multibench/results/roofline-plots/cpp-openmp__793804.out
+   Power=
+   NtasksPerTRES:0
+
+=== RUN INSTANTIATION ===
+{args: 100 100 100}
+
+===== BUILD =====
+/usr/bin/g++ -O3 -ftree-vectorize -ftree-vectorizer-verbose=2 -fopenmp -DUSING_OMP     -c -o main.o main.cpp
+/usr/bin/g++ -O3 -ftree-vectorize -ftree-vectorizer-verbose=2 -fopenmp -DUSING_OMP     -c -o generate_matrix.o generate_matrix.cpp
+/usr/bin/g++ -O3 -ftree-vectorize -ftree-vectorizer-verbose=2 -fopenmp -DUSING_OMP     -c -o read_HPC_row.o read_HPC_row.cpp
+/usr/bin/g++ -O3 -ftree-vectorize -ftree-vectorizer-verbose=2 -fopenmp -DUSING_OMP     -c -o compute_residual.o compute_residual.cpp
+/usr/bin/g++ -O3 -ftree-vectorize -ftree-vectorizer-verbose=2 -fopenmp -DUSING_OMP     -c -o mytimer.o mytimer.cpp
+/usr/bin/g++ -O3 -ftree-vectorize -ftree-vectorizer-verbose=2 -fopenmp -DUSING_OMP     -c -o dump_matlab_matrix.o dump_matlab_matrix.cpp
+/usr/bin/g++ -O3 -ftree-vectorize -ftree-vectorizer-verbose=2 -fopenmp -DUSING_OMP     -c -o HPC_sparsemv.o HPC_sparsemv.cpp
+/usr/bin/g++ -O3 -ftree-vectorize -ftree-vectorizer-verbose=2 -fopenmp -DUSING_OMP     -c -o HPCCG.o HPCCG.cpp
+/usr/bin/g++ -O3 -ftree-vectorize -ftree-vectorizer-verbose=2 -fopenmp -DUSING_OMP     -c -o waxpby.o waxpby.cpp
+/usr/bin/g++ -O3 -ftree-vectorize -ftree-vectorizer-verbose=2 -fopenmp -DUSING_OMP     -c -o ddot.o ddot.cpp
+/usr/bin/g++ -O3 -ftree-vectorize -ftree-vectorizer-verbose=2 -fopenmp -DUSING_OMP     -c -o make_local_matrix.o make_local_matrix.cpp
+/usr/bin/g++ -O3 -ftree-vectorize -ftree-vectorizer-verbose=2 -fopenmp -DUSING_OMP     -c -o exchange_externals.o exchange_externals.cpp
+/usr/bin/g++ -O3 -ftree-vectorize -ftree-vectorizer-verbose=2 -fopenmp -DUSING_OMP     -c -o YAML_Element.o YAML_Element.cpp
+/usr/bin/g++ -O3 -ftree-vectorize -ftree-vectorizer-verbose=2 -fopenmp -DUSING_OMP     -c -o YAML_Doc.o YAML_Doc.cpp
+/usr/bin/g++ -O3 -ftree-vectorize -ftree-vectorizer-verbose=2 -fopenmp main.o generate_matrix.o read_HPC_row.o compute_residual.o mytimer.o dump_matlab_matrix.o HPC_sparsemv.o HPCCG.o waxpby.o ddot.o make_local_matrix.o exchange_externals.o YAML_Element.o YAML_Doc.o -lm -o test_HPCCG
+
+===== RUN =====
+Initial Residual = 2647.23
+Iteration = 15   Residual = 35.0277
+Iteration = 30   Residual = 0.226539
+Iteration = 45   Residual = 0.00135667
+Iteration = 60   Residual = 4.48711e-06
+Iteration = 75   Residual = 2.1484e-08
+Iteration = 90   Residual = 7.3363e-11
+Iteration = 105   Residual = 1.96577e-13
+Iteration = 120   Residual = 5.46633e-16
+Iteration = 135   Residual = 1.38116e-18
+Iteration = 149   Residual = 7.99491e-21
+Mini-Application Name: hpccg
+Mini-Application Version: 1.0
+Parallelism: 
+  MPI not enabled: 
+  Number of OpenMP threads: 5
+Dimensions: 
+  nx: 100
+  ny: 100
+  nz: 100
+Number of iterations: 149
+Final residual: 7.99491e-21
+#********** Performance Summary (times in sec) ***********: 
+Time Summary: 
+  Total   : 16.5203
+  DDOT    : 0.826628
+  WAXPBY  : 2.5599
+  SPARSEMV: 13.1298
+FLOPS Summary: 
+  Total   : 9.536e+09
+  DDOT    : 5.96e+08
+  WAXPBY  : 8.94e+08
+  SPARSEMV: 8.046e+09
+MFLOPS Summary: 
+  Total   : 577.228
+  DDOT    : 721.001
+  WAXPBY  : 349.232
+  SPARSEMV: 612.807
+--------------------------------------------------------------------------------
+Group 1: MEM
++-----------------------+---------+------------+------------+------------+------------+------------+
+|         Event         | Counter | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 | HWThread 4 |
++-----------------------+---------+------------+------------+------------+------------+------------+
+|   INSTR_RETIRED_ANY   |  FIXC0  | 7196307983 | 6949820020 | 6678664389 | 7200026346 | 6597659324 |
+| CPU_CLK_UNHALTED_CORE |  FIXC1  | 9300207873 | 9168138481 | 8945150278 | 9187862698 | 8968401871 |
+|  CPU_CLK_UNHALTED_REF |  FIXC2  | 6810708258 | 6751604124 | 6614470694 | 6755437562 | 6632304240 |
+|       DRAM_READS      | MBOX0C1 | 1273901754 |          0 |          0 |          0 |          0 |
+|      DRAM_WRITES      | MBOX0C2 |  193862287 |          0 |          0 |          0 |          0 |
++-----------------------+---------+------------+------------+------------+------------+------------+
+
++----------------------------+---------+-------------+------------+------------+--------------+
+|            Event           | Counter |     Sum     |     Min    |     Max    |      Avg     |
++----------------------------+---------+-------------+------------+------------+--------------+
+|   INSTR_RETIRED_ANY STAT   |  FIXC0  | 34622478062 | 6597659324 | 7200026346 | 6.924496e+09 |
+| CPU_CLK_UNHALTED_CORE STAT |  FIXC1  | 45569761201 | 8945150278 | 9300207873 | 9.113952e+09 |
+|  CPU_CLK_UNHALTED_REF STAT |  FIXC2  | 33564524878 | 6614470694 | 6810708258 | 6.712905e+09 |
+|       DRAM_READS STAT      | MBOX0C1 |  1273901754 |          0 | 1273901754 | 2.547804e+08 |
+|      DRAM_WRITES STAT      | MBOX0C2 |   193862287 |          0 |  193862287 | 3.877246e+07 |
++----------------------------+---------+-------------+------------+------------+--------------+
+
++-----------------------------------+------------+------------+------------+------------+------------+
+|               Metric              | HWThread 0 | HWThread 1 | HWThread 2 | HWThread 3 | HWThread 4 |
++-----------------------------------+------------+------------+------------+------------+------------+
+|        Runtime (RDTSC) [s]        |     3.6075 |     3.6075 |     3.6075 |     3.6075 |     3.6075 |
+|        Runtime unhalted [s]       |     4.6688 |     4.6025 |     4.4906 |     4.6124 |     4.5022 |
+|            Clock [MHz]            |  2720.1145 |  2704.9609 |  2693.8868 |  2709.2421 |  2693.6268 |
+|                CPI                |     1.2924 |     1.3192 |     1.3394 |     1.2761 |     1.3593 |
+|  Memory load bandwidth [MBytes/s] | 22599.8736 |          0 |          0 |          0 |          0 |
+|  Memory load data volume [GBytes] |    81.5297 |          0 |          0 |          0 |          0 |
+| Memory evict bandwidth [MBytes/s] |  3439.2473 |          0 |          0 |          0 |          0 |
+| Memory evict data volume [GBytes] |    12.4072 |          0 |          0 |          0 |          0 |
+|    Memory bandwidth [MBytes/s]    | 26039.1209 |          0 |          0 |          0 |          0 |
+|    Memory data volume [GBytes]    |    93.9369 |          0 |          0 |          0 |          0 |
++-----------------------------------+------------+------------+------------+------------+------------+
+
++----------------------------------------+------------+-----------+------------+-----------+
+|                 Metric                 |     Sum    |    Min    |     Max    |    Avg    |
++----------------------------------------+------------+-----------+------------+-----------+
+|        Runtime (RDTSC) [s] STAT        |    18.0375 |    3.6075 |     3.6075 |    3.6075 |
+|        Runtime unhalted [s] STAT       |    22.8765 |    4.4906 |     4.6688 |    4.5753 |
+|            Clock [MHz] STAT            | 13521.8311 | 2693.6268 |  2720.1145 | 2704.3662 |
+|                CPI STAT                |     6.5864 |    1.2761 |     1.3593 |    1.3173 |
+|  Memory load bandwidth [MBytes/s] STAT | 22599.8736 |         0 | 22599.8736 | 4519.9747 |
+|  Memory load data volume [GBytes] STAT |    81.5297 |         0 |    81.5297 |   16.3059 |
+| Memory evict bandwidth [MBytes/s] STAT |  3439.2473 |         0 |  3439.2473 |  687.8495 |
+| Memory evict data volume [GBytes] STAT |    12.4072 |         0 |    12.4072 |    2.4814 |
+|    Memory bandwidth [MBytes/s] STAT    | 26039.1209 |         0 | 26039.1209 | 5207.8242 |
+|    Memory data volume [GBytes] STAT    |    93.9369 |         0 |    93.9369 |   18.7874 |
++----------------------------------------+------------+-----------+------------+-----------+
+
+real 1.17
+user 16.15
+sys 0.09
