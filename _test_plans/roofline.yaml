@@ -89,8 +89,10 @@ benches:
         "Total MFLOPs/s": "MFLOPS Summary:[\\s\\S]*Total\\s*: ([\\d\\.]+)"
         "Memory Bandwidth": "\\|\\s+Memory bandwidth\ \\[MBytes\/s\\]\\s+\\|\\s+([\\d\\.]+)\ \\|"
         "Wall time (s)": "real\\s([\\d\\.]+)\nuser"
+      derived_metrics:
+        "Total GFLOPs/s": "float(metrics['Total MFLOPs/s']) / 100"
       roofline_plots:
         - title: "Parallelism Roofline Plot"
-          gflops_per_sec: "Total MFLOPs/s"
+          gflops_per_sec: "Total GFLOPs/s"
           mbytes_per_sec: "Memory Bandwidth"
           ert_json: "./yaml_examples/old/roofline.json"
